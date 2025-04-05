@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Circle - experimental</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Area & Perimeter Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .circle-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .circle {
+            background: rgba(0, 123, 255, 0.3);
+            border: 2px solid #007BFF;
+            border-radius: 50%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Circle Calculator</h2>
+        <input type="number" id="radius" placeholder="Enter radius" min="1">
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="output">
+            <p><strong>Area:</strong> <span id="area">0</span> square units</p>
+            <p><strong>Perimeter:</strong> <span id="perimeter">0</span> units</p>
+        </div>
+
+        <div class="circle-container">
+            <div class="circle" id="circle"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            let radius = document.getElementById("radius").value;
+            if (radius <= 0 || isNaN(radius)) {
+                alert("Please enter a valid radius.");
+                return;
+            }
+
+            let area = Math.PI * radius * radius;
+            let perimeter = 2 * Math.PI * radius;
+
+            document.getElementById("area").innerText = area.toFixed(2);
+            document.getElementById("perimeter").innerText = perimeter.toFixed(2);
+
+            let circle = document.getElementById("circle");
+            circle.style.width = radius * 2 + "px";
+            circle.style.height = radius * 2 + "px";
+            circle.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
